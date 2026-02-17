@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On-Demand Library - Old Glory Classics</title>
+    <!-- Video.js CSS & JS -->
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }
+        h1, h2 { color: #fff; }
+        .genre-section { margin-bottom: 40px; }
+        .genre-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .vod-card { background: #1a1a1a; border: 1px solid #333; border-radius: 8px; padding: 15px; text-align: center; cursor: pointer; }
+        .vod-card img { width: 100%; height: 140px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center; }
+        .modal-content { width: 90%; max-width: 900px; position: relative; }
+        .close { position: absolute; top: -40px; right: 0; color: white; font-size: 36px; cursor: pointer; }
+        @media (max-width: 600px) { .genre-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } }
+    </style>
+</head>
+<body>
+    <h1>On-Demand Library</h1>
+    <p style="text-align: center;">Browse individual titles by genre. Click to play.</p>
+
+    <div class="genre-section">
+        <h2>Comedy</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/download/charlie_chaplin_film_fest/charlie_chaplin_film_fest.mp4')">
+                <img src="https://archive.org/download/charlie_chaplin_film_fest/charlie_chaplin_film_fest.thumbs/charlie_chaplin_film_fest_000001.jpg" alt="Charlie Chaplin Shorts">
+                <h4>Charlie Chaplin Shorts</h4>
+                <p>1910s</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/download/LaurelAndHardyCollection/LaurelAndHardyCollection.mp4')">
+                <img src="https://archive.org/download/LaurelAndHardyCollection/LaurelAndHardyCollection.thumbs/LaurelAndHardyCollection_000001.jpg" alt="Laurel & Hardy">
+                <h4>Laurel & Hardy</h4>
+                <p>1930s</p>
+            </div>
+            <!-- Add 2-3 more for this genre -->
+        </div>
+    </div>
+
+    <div class="genre-section">
+        <h2>Horror</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/download/HouseOnHauntedHill1959/HouseOnHauntedHill1959.mp4')">
+                <img src="https://archive.org/download/HouseOnHauntedHill1959/HouseOnHauntedHill1959.thumbs/HouseOnHauntedHill1959_000001.jpg" alt="House on Haunted Hill">
+                <h4>House on Haunted Hill</h4>
+                <p>1959</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/download/NightOfTheLivingDead1968/NightOfTheLivingDead1968.mp4')">
+                <img src="https://archive.org/download/NightOfTheLivingDead1968/NightOfTheLivingDead1968.thumbs/NightOfTheLivingDead1968_000001.jpg" alt="Night of the Living Dead">
+                <h4>Night of the Living Dead</h4>
+                <p>1968</p>
+            </div>
+            <!-- Add more for Horror -->
+        </div>
+    </div>
+
+    <!-- Add sections for other genres like Sci-Fi, Cartoon, etc. (total 18 to match channels) -->
+    <!-- Example for Sci-Fi -->
+    <div class="genre-section">
+        <h2>Science Fiction</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/download/Plan9FromOuterSpace1959/Plan9FromOuterSpace1959.mp4')">
+                <img src="https://archive.org/download/Plan9FromOuterSpace1959/Plan9FromOuterSpace1959.thumbs/Plan9FromOuterSpace1959_000001.jpg" alt="Plan 9 from Outer Space">
+                <h4>Plan 9 from Outer Space</h4>
+                <p>1959</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/download/TheLastManOnEarth1964/TheLastManOnEarth1964.mp4')">
+                <img src="https://archive.org/download/TheLastManOnEarth1964/TheLastManOnEarth1964.thumbs/TheLastManOnEarth1964_000001.jpg" alt="The Last Man on Earth">
+                <h4>The Last Man on Earth</h4>
+                <p>1964</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/things-to-come-1936_202505')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/Things_to_Come_1936_Cover.jpeg" alt="Things to Come">
+                <h4>Things to Come</h4>
+                <p>1936</p>
+            </div>
+            <!-- Add more -->
+        </div>
+    </div>
+
+    <div class="genre-section">
+        <h2>Cartoon</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/steamboat-willie-1928_202406')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/Steamboat_Willie_1928_Cover-scaled.jpeg" alt="Steamboat Willie">
+                <h4>Steamboat Willie</h4>
+                <p>1928</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/pest-pilot-1941')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/Pest_Pilot_1941_Cover.jpeg" alt="Popeye: Pest Pilot">
+                <h4>Popeye: Pest Pilot</h4>
+                <p>1941</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/mighty-mouse-and-the-pirates-1945')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/Mighty_Mouse_and_the_Pirates_1945_Cover.jpeg" alt="Mighty Mouse and the Pirates">
+                <h4>Mighty Mouse and the Pirates</h4>
+                <p>1945</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/daffy-the-commando-1943')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/Daffy_The_Commando_1943_Cover.jpeg" alt="Daffy – The Commando">
+                <h4>Daffy – The Commando</h4>
+                <p>1943</p>
+            </div>
+            <!-- Add more for Cartoons -->
+    </div>
+      
+    <div class="genre-section">
+        <h2>Family</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/20-000-leagues-under-the-sea-1954_202506')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/20000_Leagues_Under_the_Sea_1954_Cover.jpeg" alt="20,000 Leagues Under the Sea">
+                <h4>20,000 Leagues Under the Sea</h4>
+                <p>1954</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/jungle-book-1942_202312')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/Jungle_Book_1942_Cover.jpeg" alt="Jungle Book">
+                <h4>Jungle Book</h4>
+                <p>1942</p>
+            </div>
+            <!-- Add more for Family -->
+        </div>
+    </div>
+
+    <div class="genre-section">
+        <h2>Mystery</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/pickup-on-south-street-1953_202506')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/Pickup_on_South_Street_1953_Cover.jpeg" alt="Pickup on South Street">
+                <h4>Pickup on South Street</h4>
+                <p>1953</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/and-then-there-were-none-1945_202309')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/And_Then_There_Were_None_1945_Cover.jpeg" alt="And Then There Were None">
+                <h4>And Then There Were None</h4>
+                <p>1945</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/the-lady-in-question-1940_202508')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/The_Lady_in_Question_1940_Cover.jpeg" alt="The Lady in Question">
+                <h4>The Lady in Question</h4>
+                <p>1940</p>
+            </div>
+            <!-- Add more for Mystery -->
+        </div>
+    </div>
+
+    <div class="genre-section">
+        <h2>Romance</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/bird-of-paradise-1932')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/Bird_of_Paradise_1932_Cover.jpeg" alt="Bird of Paradise">
+                <h4>Bird of Paradise</h4>
+                <p>1932</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/wake-of-the-red-witch-1948_202506')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/Wake_of_the_Red_Witch_1948_Cover.jpeg" alt="Wake of the Red Witch">
+                <h4>Wake of the Red Witch</h4>
+                <p>1948</p>
+            </div>
+            <!-- Add more for Romance -->
+        </div>
+    </div>
+
+    <div class="genre-section">
+        <h2>Western</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/the-paleface-1948')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/The_Paleface_1948_Cover.jpeg" alt="The Paleface">
+                <h4>The Paleface</h4>
+                <p>1948</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/duel-in-the-sun-1946_202506')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/Duel_in_the_Sun_1946_Cover.jpeg" alt="Duel in the Sun">
+                <h4>Duel in the Sun</h4>
+                <p>1946</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/the-wackiest-wagon-train-in-the-west-1976_202309')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/The_Wackiest_Wagon_Train_in_the_West_1976_Cover.jpeg" alt="The Wackiest Wagon Train in the West">
+                <h4>The Wackiest Wagon Train in the West</h4>
+                <p>1976</p>
+            </div>
+            <!-- Add more for Western -->
+        </div>
+    </div>
+
+    <div class="genre-section">
+        <h2>Holiday</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/beyond-tomorrow-1940')">
+                <img src="https://image.tmdb.org/t/p/original/sbtZUbl6czWZzqxaDgiPifayt3K.jpg" alt="Beyond Tomorrow">
+                <h4>Beyond Tomorrow aka Beyond Christmas</h4>
+                <p>1940</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/a-christmas-carol-1938')">
+                <img src="https://image.tmdb.org/t/p/original/nRC5yp06wjTLPfCLMUo0InbEml3.jpg" alt="A Christmas Carol">
+                <h4>A Christmas Carol</h4>
+                <p>1938</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/the-great-rupert-1950')">
+                <img src="https://image.tmdb.org/t/p/original/o0szjzd2ypKoqwhNh9n1YN85LyK.jpg" alt="The Great Rupert">
+                <h4>The Great Rupert aka A Christmas Wish</h4>
+                <p>1950</p>
+            </div>
+            <!-- Add more for Holiday -->
+        </div>
+    </div>
+
+    <div class="genre-section">
+        <h2>Silent</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/the-boat-1921-1080p-blu-ray-x-265-garshasp')">
+                <img src="https://aurorasginjoint.com/wp-content/uploads/2021/03/buster-portrait.png" alt="Buster Keaton - 1921 - The Shorts Collection">
+                <h4>Buster Keaton - 1921 - The Shorts Collection</h4>
+                <p>1921</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/the-mark-of-zorro-1920_202310')">
+                <img src="https://image.tmdb.org/t/p/original/tQinDaksJggoFFWPuqBQ5Vxi8h7.jpg" alt="The Mark of Zorro">
+                <h4>The Mark of Zorro</h4>
+                <p>1920</p>
+            </div>
+            <!-- Add more for Silent -->
+        </div>
+    </div>
+
+    <div class="genre-section">
+        <h2>War</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/the-fall-of-the-roman-empire-1964')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/The_Fall_of_the_Roman_Empire_1964_Cover.jpeg" alt="The Fall of the Roman Empire">
+                <h4>The Fall of the Roman Empire</h4>
+                <p>1964</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/i-was-a-male-war-bride-1949')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/I_Was_a_Male_War_Bride_1949_Cover.jpeg" alt="I Was a Male War Bride">
+                <h4>I Was a Male War Bride</h4>
+                <p>1949</p>
+            </div>
+            <!-- Add more for War -->
+        </div>
+    </div>
+
+    <div class="genre-section">
+        <h2>Sports</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/the-caddy-1953"')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/The_Caddy_1953_Cover.jpeg" alt="The Caddy">
+                <h4>The Caddy</h4>
+                <p>1953</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/the-milky-way-1936')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/The_Milky_Way_1936_Cover.jpeg" alt="The Milky Way">
+                <h4>The Milky Way</h4>
+                <p>1936</p>
+            </div>
+            <!-- Add more for Sports -->
+        </div>
+    </div>
+
+    <div class="genre-section">
+        <h2>Faith & Inspiration</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/great_commandment')">
+                <img src="https://media.themoviedb.org/t/p/w300_and_h450_face/rZLVMmEvoELj9i3CxPtrCbYwYFy.jpg" alt="The Great Commandment">
+                <h4>The Great Commandment</h4>
+                <p>1939</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/esther-and-the-king-1960')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/Esther_and_the_King_1960_Cover.jpeg" alt="Esther and the King">
+                <h4>Esther and the King</h4>
+                <p>1960</p>
+            </div>
+            <!-- Add more for Faith & Inspiration -->
+        </div>
+    </div>
+
+    <div class="genre-section">
+        <h2>Musical</h2>
+        <div class="genre-grid">
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/breakfast-in-hollywood-1946_202503')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/Breakfast_in_Hollywood_1946_Cover.jpeg" alt="Breakfast in Hollywood">
+                <h4>Breakfast in Hollywood</h4>
+                <p>1946</p>
+            </div>
+            <div class="vod-card" onclick="openModal('https://archive.org/embed/something-to-sing-about-1937')">
+                <img src="https://retroflix.org/wp-content/uploads/2025/10/Something_to_Sing_About_1937_Cover.jpeg" alt="Something to Sing About">
+                <h4>Something to Sing About</h4>
+                <p>1937</p>
+            </div>
+            <!-- Add more for Musical -->
+        </div>
+    </div>
+    
+    <!-- Continue adding genre sections... -->
+
+    <!-- Modal for VOD -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <video id="modal-player" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="500">
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.video-js').forEach(playerEl => {
+                videojs(playerEl, {
+                    loop: true,
+                    autoplay: 'muted',
+                    controls: true,
+                    preload: 'auto'
+                });
+            });
+        });
+
+        function openModal(src) {
+            const player = videojs('modal-player', {
+                loop: true,
+                autoplay: 'muted',
+                controls: true,
+                preload: 'auto',
+                sources: [{ src: src, type: (src.endsWith('.m3u8') ? 'application/x-mpegURL' : 'video/mp4') }]
+            });
+            document.getElementById('modal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+            videojs('modal-player').dispose();
+        }
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') closeModal();
+        };
+    </script>
+
+    <footer>
+        <p>Powered by public domain content • <a href="/privacy.html">Privacy Policy</a> • No tracking</p>
+    </footer>
+</body>
+</html>
