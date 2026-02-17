@@ -22,13 +22,10 @@
             .channel-row { flex-direction: column; }
             .video-js { width: 100%; height: 200px; margin-bottom: 10px; }
         }
-        .vod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; }
-        .vod-card { background: #1a1a1a; border: 1px solid #333; border-radius: 8px; padding: 15px; text-align: center; cursor: pointer; }
-        .vod-card img { width: 100%; height: 140px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; }
-        .vod-placeholder, .ad-slot { text-align: center; padding: 30px; background: #1a1a1a; border: 1px dashed #444; margin: 30px auto; max-width: 800px; border-radius: 8px; }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center; }
-        .modal-content { width: 90%; max-width: 900px; position: relative; }
-        .close { position: absolute; top: -40px; right: 0; color: white; font-size: 36px; cursor: pointer; }
+        .vod-link { text-align: center; margin: 30px 0; }
+        .vod-link a { color: #4da6ff; font-size: 1.2em; text-decoration: none; }
+        .vod-link a:hover { text-decoration: underline; }
+        .ad-slot { text-align: center; padding: 30px; background: #1a1a1a; border: 1px dashed #444; margin: 30px auto; max-width: 800px; border-radius: 8px; }
         footer { text-align: center; margin-top: 50px; color: #777; font-size: 0.9em; }
         footer a { color: #aaa; text-decoration: none; }
         footer a:hover { text-decoration: underline; }
@@ -40,22 +37,21 @@
 
     <h2>24/7 Live Channels</h2>
     <div class="channels">
-        <!-- Channel 1: Comedy -->
+        <!-- Channel 1: Comedy (HLS Example) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player1" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
-                    <source src="https://archive.org/download/charlie_chaplin_film_fest/charlie_chaplin_film_fest.mp4" type="video/mp4">
-                    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+                    <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
                 </video>
             </div>
             <div class="channel-info">
                 <h3>1. Comedy</h3>
-                <p class="now-playing">Now Playing: Charlie Chaplin Shorts</p>
-                <p class="next-up">Next: Laurel & Hardy Comedy</p>
+                <p class="now-playing">Now Playing: Big Buck Bunny (Test HLS)</p>
+                <p class="next-up">Next: Charlie Chaplin Shorts</p>
             </div>
         </div>
 
-        <!-- Channel 2: Horror -->
+        <!-- Channel 2: Horror (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player2" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
@@ -69,21 +65,21 @@
             </div>
         </div>
 
-        <!-- Channel 3: Science Fiction -->
+        <!-- Channel 3: Science Fiction (HLS Example) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player3" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
-                    <source src="https://archive.org/download/teenagers-from-outer-space-1959/Teenagers%20from%20Outer%20Space%20%281959%29.mp4" type="video/mp4">
+                    <source src="https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8" type="application/x-mpegURL">
                 </video>
             </div>
             <div class="channel-info">
                 <h3>3. Science Fiction</h3>
-                <p class="now-playing">Now Playing: Teenagers From Outer Space (1959)</p>
-                <p class="next-up">Next: The Last Man on Earth</p>
+                <p class="now-playing">Now Playing: Tears of Steel (Test HLS)</p>
+                <p class="next-up">Next: Plan 9 from Outer Space</p>
             </div>
         </div>
 
-        <!-- Channel 4: Cartoon -->
+        <!-- Channel 4: Cartoon (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player4" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
@@ -97,7 +93,7 @@
             </div>
         </div>
 
-        <!-- Channel 5: Family -->
+        <!-- Channel 5: Family (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player5" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
@@ -111,7 +107,7 @@
             </div>
         </div>
 
-        <!-- Channel 6: Mystery -->
+        <!-- Channel 6: Mystery (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player6" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
@@ -121,95 +117,95 @@
             <div class="channel-info">
                 <h3>6. Mystery</h3>
                 <p class="now-playing">Now Playing: The Studio Murder Mystery (1929)</p>
-                <p class="next-up">Next: Dressed to Kill</p>
+                <p class="next-up">Next: The Hound of the Baskervilles</p>
             </div>
         </div>
 
-        <!-- Channel 7: Romance -->
+        <!-- Channel 7: Romance (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player7" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
-                    <source src="https://archive.org/download/TheSheik1921/TheSheik1921.mp4" type="video/mp4">
+                    <source src="https://archive.org/download/CyranoDeBergerac1950/CyranoDeBergerac1950.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="channel-info">
                 <h3>7. Romance</h3>
-                <p class="now-playing">Now Playing: The Sheik (1921)</p>
-                <p class="next-up">Next: Cyrano de Bergerac (1950)</p>
+                <p class="now-playing">Now Playing: Cyrano de Bergerac (1950)</p>
+                <p class="next-up">Next: The Sheik</p>
             </div>
         </div>
 
-        <!-- Channel 8: Western -->
+        <!-- Channel 8: Western (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player8" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
-                    <source src="https://archive.org/download/Stagecoach1939/Stagecoach1939.mp4" type="video/mp4">
+                    <source src="https://archive.org/download/McLintock1963/McLintock1963.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="channel-info">
                 <h3>8. Western</h3>
-                <p class="now-playing">Now Playing: Stagecoach (1939)</p>
-                <p class="next-up">Next: McLintock! (1963)</p>
+                <p class="now-playing">Now Playing: McLintock! (1963)</p>
+                <p class="next-up">Next: Stagecoach (1939)</p>
             </div>
         </div>
 
-        <!-- Channel 9: Holiday -->
+        <!-- Channel 9: Holiday (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player9" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
-                    <source src="https://archive.org/download/ItsaWonderfulLife1946/ItsaWonderfulLife1946.mp4" type="video/mp4">
+                    <source src="https://archive.org/download/AChristmasCarol1938/AChristmasCarol1938.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="channel-info">
                 <h3>9. Holiday</h3>
-                <p class="now-playing">Now Playing: It's a Wonderful Life (1946)</p>
-                <p class="next-up">Next: A Christmas Carol</p>
+                <p class="now-playing">Now Playing: A Christmas Carol (1938)</p>
+                <p class="next-up">Next: It's a Wonderful Life</p>
             </div>
         </div>
 
-        <!-- Channel 10: Silent -->
+        <!-- Channel 10: Silent (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player10" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
-                    <source src="https://archive.org/download/TheKid1921/TheKid1921.mp4" type="video/mp4">
+                    <source src="https://archive.org/download/Metropolis1927/Metropolis1927.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="channel-info">
                 <h3>10. Silent</h3>
-                <p class="now-playing">Now Playing: The Kid (1921)</p>
-                <p class="next-up">Next: Metropolis (1927)</p>
+                <p class="now-playing">Now Playing: Metropolis (1927)</p>
+                <p class="next-up">Next: The Kid</p>
             </div>
         </div>
 
-        <!-- Channel 11: Serials/Television -->
+        <!-- Channel 11: Serials/Television (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player11" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
-                    <source src="https://archive.org/download/FlashIpIpGordon1936/FlashIpIpGordon1936.mp4" type="video/mp4">
+                    <source src="https://archive.org/download/ZorroRidesAgain1937/ZorroRidesAgain1937.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="channel-info">
                 <h3>11. Serials/Television</h3>
-                <p class="now-playing">Now Playing: Flash Gordon (1936 serial)</p>
-                <p class="next-up">Next: Zorro Rides Again</p>
+                <p class="now-playing">Now Playing: Zorro Rides Again (1937 serial)</p>
+                <p class="next-up">Next: Flash Gordon</p>
             </div>
         </div>
 
-        <!-- Channel 12: Newsreels -->
+        <!-- Channel 12: Newsreels (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player12" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
-                    <source src="https://archive.org/download/UniversalNewsreel/UniversalNewsreel.mp4" type="video/mp4">
+                    <source src="https://archive.org/download/BritishPatheNews/BritishPatheNews.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="channel-info">
                 <h3>12. Newsreels</h3>
-                <p class="now-playing">Now Playing: Universal Newsreels (1940s)</p>
-                <p class="next-up">Next: British Pathe News</p>
+                <p class="now-playing">Now Playing: British Pathe News (1940s)</p>
+                <p class="next-up">Next: Universal Newsreels</p>
             </div>
         </div>
 
-        <!-- Channel 13: War -->
+        <!-- Channel 13: War (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player13" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
@@ -219,11 +215,11 @@
             <div class="channel-info">
                 <h3>13. War</h3>
                 <p class="now-playing">Now Playing: Go for Broke! (1951)</p>
-                <p class="next-up">Next: The Battle of Britain</p>
+                <p class="next-up">Next: Why We Fight</p>
             </div>
         </div>
 
-        <!-- Channel 14: Sport -->
+        <!-- Channel 14: Sport (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player14" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
@@ -233,39 +229,39 @@
             <div class="channel-info">
                 <h3>14. Sport</h3>
                 <p class="now-playing">Now Playing: The Jackie Robinson Story (1950)</p>
-                <p class="next-up">Next: Vintage Baseball</p>
+                <p class="next-up">Next: Vintage Baseball Footage (1930s)</p>
             </div>
         </div>
 
-        <!-- Channel 15: Faith & Inspiration -->
+        <!-- Channel 15: Faith & Inspiration (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player15" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
-                    <source src="https://archive.org/download/TheLivingChristSeries/TheLivingChristSeries.mp4" type="video/mp4">
+                    <source src="https://archive.org/download/KingOfKings1927/KingOfKings1927.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="channel-info">
                 <h3>15. Faith & Inspiration</h3>
-                <p class="now-playing">Now Playing: The Living Christ Series (1951)</p>
-                <p class="next-up">Next: King of Kings</p>
+                <p class="now-playing">Now Playing: King of Kings (1927)</p>
+                <p class="next-up">Next: The Living Christ</p>
             </div>
         </div>
 
-        <!-- Channel 16: Vintage Music Performances -->
+        <!-- Channel 16: Vintage Music Performances (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player16" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
-                    <source src="https://archive.org/download/JazzOnFilmCollection/JazzOnFilmCollection.mp4" type="video/mp4">
+                    <source src="https://archive.org/download/DukeEllingtonShorts/DukeEllingtonShorts.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="channel-info">
                 <h3>16. Vintage Music Performances</h3>
-                <p class="now-playing">Now Playing: Jazz performances from film (1940s-50s)</p>
-                <p class="next-up">Next: Duke Ellington Shorts</p>
+                <p class="now-playing">Now Playing: Duke Ellington Shorts (1930s)</p>
+                <p class="next-up">Next: Jazz on Film</p>
             </div>
         </div>
 
-        <!-- Channel 17: Old Time Radio Theater -->
+        <!-- Channel 17: Old Time Radio Theater (Direct MP4) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player17" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
@@ -279,108 +275,24 @@
             </div>
         </div>
 
-        <!-- Channel 18: Relaxation/Ambient Loops -->
+        <!-- Channel 18: Relaxation/Ambient Loops (HLS Example) -->
         <div class="channel-row">
             <div class="video-js-container">
                 <video id="player18" class="video-js vjs-default-skin" controls preload="auto" autoplay muted>
-                    <source src="https://player.vimeo.com/video/473246999" type="video/mp4">
+                    <source src="https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8" type="application/x-mpegURL">
                 </video>
             </div>
             <div class="channel-info">
                 <h3>18. Relaxation/Ambient Loops</h3>
-                <p class="now-playing">Now Playing: 4K Nature Relaxation Loop (CC0)</p>
-                <p class="next-up">Next: Ocean Waves</p>
+                <p class="now-playing">Now Playing: Ad-Insertion Test Loop (HLS)</p>
+                <p class="next-up">Next: Nature 4K Loop</p>
             </div>
         </div>
     </div>
 
-    <!-- VOD Grid Expanded -->
-    <h2>On-Demand Library</h2>
-    <div class="vod-grid">
-        
-        <!-- VOD Card 1 -->
-        <div class="vod-card" onclick="openModal('https://archive.org/download/charlie_chaplin_film_fest/charlie_chaplin_film_fest.mp4')">
-            <img src="https://archive.org/download/charlie_chaplin_film_fest/charlie_chaplin_film_fest.thumbs/charlie_chaplin_film_fest_000001.jpg" alt="Charlie Chaplin Shorts">
-            <h4>Charlie Chaplin Shorts</h4>
-            <p>Comedy • 1910s</p>
-        </div>
-
-        <!-- VOD Card 2 -->
-        <div class="vod-card" onclick="openModal('https://archive.org/download/HouseOnHauntedHill1959/HouseOnHauntedHill1959.mp4')">
-            <img src="https://retroflix.org/wp-content/uploads/2025/10/House_on_Haunted_Hill_1959_Cover.jpeg" alt="House on Haunted Hill">
-            <h4>House on Haunted Hill</h4>
-            <p>Horror • 1959</p>
-        </div>
-
-        <!-- VOD Card 3 -->
-        <div class="vod-card" onclick="openModal('https://archive.org/embed/things-to-come-1936_202505')">
-            <img src="https://retroflix.org/wp-content/uploads/2025/10/Things_to_Come_1936_Cover.jpeg" alt="Things to Come">
-            <h4>Things to Come</h4>
-            <p>Sci-Fi • 1936</p>
-        </div>
-
-        <!-- VOD Card 4 -->
-        <div class="vod-card" onclick="openModal('https://archive.org/download/PopeyeTheSailorMeetsSindbadTheSailor/PopeyeTheSailorMeetsSindbadTheSailor.mp4')">
-            <img src="https://archive.org/download/PopeyeTheSailorMeetsSindbadTheSailor/PopeyeTheSailorMeetsSindbadTheSailor.thumbs/PopeyeTheSailorMeetsSindbadTheSailor_000001.jpg" alt="Popeye Meets Sindbad">
-            <h4>Popeye Meets Sindbad</h4>
-            <p>Cartoon • 1936</p>
-        </div>
-
-        <!-- VOD Card 5 -->
-        <div class="vod-card" onclick="openModal('https://archive.org/download/TheLittlePrincess1939/TheLittlePrincess1939.mp4')">
-            <img src="https://archive.org/download/TheLittlePrincess1939/TheLittlePrincess1939.thumbs/TheLittlePrincess1939_000001.jpg" alt="The Little Princess">
-            <h4>The Little Princess</h4>
-            <p>Family • 1939</p>
-        </div>
-
-        <!-- VOD Card 6 -->
-        <div class="vod-card" onclick="openModal('https://archive.org/embed/steamboat-willie-1928_202406')">
-            <img src="https://retroflix.org/wp-content/uploads/2025/10/Steamboat_Willie_1928_Cover-scaled.jpeg" alt="Cartoon">
-            <h4>Steamboat Willie</h4>
-            <p>Cartoon • 1928</p>
-        </div>
-
-        <!-- VOD Card 7 -->
-        <div class="vod-card" onclick="openModal('https://archive.org/embed/and-then-there-were-none-1945_202309')">
-            <img src="https://retroflix.org/wp-content/uploads/2025/10/And_Then_There_Were_None_1945_Cover.jpeg" alt="Mystery">
-            <h4>And Then There Were None</h4>
-            <p>Mystery • 1945</p>
-        </div>
-
-        <!-- VOD Card 8 -->
-        <div class="vod-card" onclick="openModal('https://archive.org/embed/bird-of-paradise-1932')">
-            <img src="https://retroflix.org/wp-content/uploads/2025/10/Bird_of_Paradise_1932_Cover.jpeg" alt="Romance">
-            <h4>Bird of Paradise</h4>
-            <p>Romance • 1932</p>
-        </div>
-
-        <!-- VOD Card 9 -->
-        <div class="vod-card" onclick="openModal('https://archive.org/embed/angel-and-the-badman-1947_202503')">
-            <img src="https://retroflix.org/wp-content/uploads/2025/10/Angel_and_the_Badman_1947_Cover.jpeg" alt="Western">
-            <h4>Angel and the Badman</h4>
-            <p>Western • 1947</p>
-        </div>
-
-        <!-- VOD Card 10 -->
-        <div class="vod-card" onclick="openModal('https://archive.org/embed/the-great-rupert-1950')">
-            <img src="https://retroflix.org/wp-content/uploads/2025/10/The_Great_Rupert_1950_Cover.jpeg" alt="Holiday">
-            <h4>The Great Rupert</h4>
-            <p>Holiday • 1950</p>
-        </div>
-
-        <!-- VOD Card 11 -->
-        <div class="vod-card" onclick="openModal('https://archive.org/embed/stalag-17-1953')">
-            <img src="https://retroflix.org/wp-content/uploads/2025/10/Stalag_17_1953_Cover.jpeg" alt="War">
-            <h4>Stalag 17</h4>
-            <p>War • 1953</p>
-        </div>
-
-        <!-- VOD Card 12 -->
-        <div class="vod-card" onclick="openModal('https://archive.org/embed/breakfast-in-hollywood-1946_202503')">
-            <img src="https://retroflix.org/wp-content/uploads/2025/10/Breakfast_in_Hollywood_1946_Cover.jpeg" alt="Musical">
-            <h4>Breakfast in Hollywood</h4>
-            <p>Musical • 1946</p>
-        </div>
+    <!-- VOD Link -->
+    <div class="vod-link">
+        <a href="vod.html">Browse On-Demand Library</a>
     </div>
 
     <!-- Ad Slots -->
@@ -388,19 +300,18 @@
         [Advertisement slot - Revive/Media.net placeholder]
     </div>
 
-    <!-- Modal for VOD -->
+    <!-- Modal for VOD (with Video.js) -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <video id="modal-player" class="video-js vjs-default-skin" controls preload="auto">
+            <video id="modal-player" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="500">
                 <source src="" type="video/mp4">
             </video>
         </div>
     </div>
 
-    <!-- JavaScript for Video.js and Modal -->
+    <!-- JavaScript -->
     <script>
-        // Initialize Video.js players with loop
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.video-js').forEach(playerEl => {
                 videojs(playerEl, {
@@ -412,15 +323,14 @@
             });
         });
 
-        // Modal functions
         function openModal(src) {
             const player = videojs('modal-player', {
                 loop: true,
                 autoplay: 'muted',
                 controls: true,
-                preload: 'auto'
+                preload: 'auto',
+                sources: [{ src: src, type: (src.endsWith('.m3u8') ? 'application/x-mpegURL' : 'video/mp4') }]
             });
-            player.src({ type: 'video/mp4', src: src });
             document.getElementById('modal').style.display = 'flex';
         }
         function closeModal() {
@@ -432,8 +342,8 @@
         };
     </script>
 
-    <p style="text-align:center; margin-top:40px; color:#666; font-size:0.9em;">
-        Powered by public domain content • Privacy-respecting • No tracking
-    </p>
+    <footer>
+        <p>Powered by public domain content • <a href="/privacy.html">Privacy Policy</a> • No tracking</p>
+    </footer>
 </body>
 </html>
