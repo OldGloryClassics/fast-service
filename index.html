@@ -3,33 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your FAST Streams - Free Public Domain Channels</title>
+    <title>Old Glory Classics - Free Public Domain Channels</title>
     <!-- Video.js CSS & JS -->
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }
-        h1, h2 { color: #fff; text-align: center; }
-        .description { text-align: center; max-width: 800px; margin: 0 auto 30px; }
-        .channels { display: flex; flex-direction: column; gap: 15px; max-width: 1400px; margin: 0 auto; }
-        .channel-row { display: flex; flex-direction: row; background: #1a1a1a; border: 1px solid #333; border-radius: 8px; padding: 15px; align-items: center; cursor: pointer; transition: background 0.3s; }
-        .channel-row:hover { background: #252525; }
-        .channel-number { width: 50px; text-align: center; font-weight: bold; color: #ffd700; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #000; color: #e0e0e0; line-height: 1.6; }
+        h1, h2 { color: #fff; text-align: center; margin: 20px 0; }
+        .description { text-align: center; max-width: 800px; margin: 0 auto 30px; font-size: 1.1em; }
+        .channels { display: flex; flex-direction: column; gap: 10px; max-width: 1400px; margin: 0 auto; padding: 0 10px; }
+        .channel-row { display: flex; flex-direction: row; background: #111; border-bottom: 1px solid #222; padding: 15px; align-items: center; cursor: pointer; transition: background 0.3s; }
+        .channel-row:hover { background: #1c1c1c; }
+        .channel-number { width: 60px; text-align: center; font-weight: bold; color: #ffd700; font-size: 1.2em; }
         .channel-info { flex: 1; padding: 0 15px; }
-        .channel h3 { margin: 0 0 5px 0; color: #ffd700; font-size: 1.1em; }
-        .now-playing { font-style: italic; color: #ccc; margin: 0; }
-        .next-up { color: #aaa; font-size: 0.9em; margin-top: 5px; }
+        .channel h3 { margin: 0 0 5px 0; color: #fff; font-size: 1.1em; }
+        .now-playing { font-style: italic; color: #ccc; margin: 0; font-size: 1em; }
+        .next-up { color: #888; font-size: 0.9em; margin-top: 5px; }
         .vod-link { text-align: center; margin: 30px 0; }
         .vod-link a { color: #4da6ff; font-size: 1.2em; text-decoration: none; }
         .vod-link a:hover { text-decoration: underline; }
-        .ad-slot { text-align: center; padding: 30px; background: #1a1a1a; border: 1px dashed #444; margin: 30px auto; max-width: 800px; border-radius: 8px; }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center; }
-        .modal-content { width: 95%; max-width: 1200px; position: relative; height: 90vh; }
+        .ad-slot { text-align: center; padding: 20px; background: #111; margin: 20px auto; max-width: 800px; border-radius: 8px; border: 1px solid #222; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; }
+        .modal-content { width: 100%; height: 100%; position: relative; }
         .close { position: absolute; top: 20px; right: 20px; color: white; font-size: 40px; cursor: pointer; z-index: 1001; }
         .video-js { width: 100%; height: 100%; }
         @media (max-width: 900px) { 
-            .channel-row { flex-direction: column; align-items: flex-start; }
-            .channel-number { margin-bottom: 10px; }
+            .channel-row { flex-direction: column; align-items: flex-start; padding: 12px; }
+            .channel-number { margin-bottom: 10px; font-size: 1.1em; }
+            .now-playing { font-size: 0.95em; }
+            .next-up { font-size: 0.85em; }
         }
         footer { text-align: center; margin-top: 50px; color: #777; font-size: 0.9em; }
         footer a { color: #aaa; text-decoration: none; }
@@ -37,12 +39,12 @@
     </style>
 </head>
 <body>
-    <h1>Your FAST Streams</h1>
+    <h1>Old Glory Classics</h1>
     <p class="description">Free ad-supported public domain & Creative Commons streaming service.<br>18 live channels + growing on-demand library. No sign-up required.</p>
 
-    <h2>Live Channels (24/7 Looping)</h2>
+    <h2>24/7 Live Channels</h2>
     <div class="channels">
-        <div class="channel-row" onclick="openPlayer('https://archive.org/download/charlie_chaplin_film_fest/charlie_chaplin_film_fest.mp4', 'video/mp4')">
+        <div class="channel-row" onclick="openPlayer('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8', 'application/x-mpegURL')">
             <div class="channel-number">1</div>
             <div class="channel-info">
                 <h3>Comedy</h3>
@@ -51,7 +53,7 @@
             </div>
         </div>
 
-        <div class="channel-row" onclick="openPlayer('https://archive.org/download/HouseOnHauntedHill1959/HouseOnHauntedHill1959.mp4', 'video/mp4')">
+        <div class="channel-row" onclick="openPlayer('https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8', 'application/x-mpegURL')">
             <div class="channel-number">2</div>
             <div class="channel-info">
                 <h3>Horror</h3>
@@ -60,7 +62,7 @@
             </div>
         </div>
 
-        <div class="channel-row" onclick="openPlayer('https://archive.org/download/Plan9FromOuterSpace1959/Plan9FromOuterSpace1959.mp4', 'video/mp4')">
+        <div class="channel-row" onclick="openPlayer('https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8', 'application/x-mpegURL')">
             <div class="channel-number">3</div>
             <div class="channel-info">
                 <h3>Science Fiction</h3>
@@ -195,11 +197,11 @@
             </div>
         </div>
 
-        <div class="channel-row" onclick="openPlayer('https://archive.org/download/4KNatureLoop/4KNatureLoop.mp4', 'video/mp4')">
+        <div class="channel-row" onclick="openPlayer('https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8', 'application/x-mpegURL')">
             <div class="channel-number">18</div>
             <div class="channel-info">
                 <h3>Relaxation/Ambient Loops</h3>
-                <p class="now-playing">Now Playing: 4K Nature Relaxation Loop</p>
+                <p class="now-playing">Now Playing: Ad-Insertion Test Loop (HLS)</p>
                 <p class="next-up">Next: Ocean Waves</p>
             </div>
         </div>
@@ -227,10 +229,6 @@
 
     <!-- JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // No individual players to initialize
-        });
-
         function openPlayer(src, type) {
             const player = videojs('modal-player', {
                 loop: true,
@@ -251,6 +249,10 @@
     </script>
 
     <footer>
+        <p>Powered by public domain content • <a href="/privacy.html">Privacy Policy</a> • No tracking</p>
+    </footer>
+</body>
+</html>
         <p>Powered by public domain content • <a href="/privacy.html">Privacy Policy</a> • No tracking</p>
     </footer>
 </body>
