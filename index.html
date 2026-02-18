@@ -14,13 +14,14 @@
         .channels { display: flex; flex-direction: column; gap: 10px; max-width: 1400px; margin: 0 auto; padding: 0 10px; }
         .channel-row { display: grid; grid-template-columns: 60px 80px 1fr 200px; background: #111; border-bottom: 1px solid #222; padding: 15px; align-items: center; cursor: pointer; transition: background 0.3s; }
         .channel-row:hover { background: #1c1c1c; }
-        .channel-number { text-align: center; font-weight: bold; color: #ffd700; font-size: 1.2em; }
+        .channel-number { text-align: center; font-weight: bold; color: #A10000; font-size: 1.2em; }
         .channel-logo { width: 50px; height: 50px; object-fit: contain; margin: 0 15px; border-radius: 4px; background: #222; }
         .channel-info { padding: 0 15px; position: relative; }
         .channel h3 { margin: 0 0 5px 0; color: #fff; font-size: 1.1em; }
         .now-playing { font-style: italic; color: #ccc; margin: 0; font-size: 1em; }
         .progress-bar { width: 100%; height: 4px; background: #333; margin-top: 5px; border-radius: 2px; overflow: hidden; }
-        .progress-fill { height: 100%; background: #ffd700; width: 0; transition: width 0.5s linear; }
+        .progress-fill { height: 100%; background: #A10000; width: 0; transition: width 0.5s linear; animation: progress 1800s linear infinite; } /* 30 min = 1800s */
+        @keyframes progress { 0% { width: 0; } 100% { width: 100%; } }
         .next-program { display: flex; align-items: center; gap: 10px; color: #aaa; font-size: 0.9em; margin-top: 10px; }
         .next-thumbnail { width: 100px; height: 56px; object-fit: cover; border-radius: 4px; background: #000; }
         .next-description { flex: 1; }
@@ -56,7 +57,7 @@
             <div class="channel-info">
                 <h3>Comedy</h3>
                 <p class="now-playing">Now Playing: Charlie Chaplin Shorts</p>
-                <div class="progress-bar"><div class="progress-fill" style="width: 50%;"></div></div> <!-- Simulated progress -->
+                <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
                     <img class="next-thumbnail" src="https://archive.org/download/laurel_and_hardy_collection/laurel_and_hardy_collection.thumbs/laurel_and_hardy_collection_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: Laurel & Hardy Comedy</span>
@@ -70,7 +71,7 @@
             <div class="channel-info">
                 <h3>Horror</h3>
                 <p class="now-playing">Now Playing: House on Haunted Hill (1959)</p>
-                <div class="progress-bar"><div class="progress-fill" style="width: 30%;"></div></div>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
                     <img class="next-thumbnail" src="https://archive.org/download/NightOfTheLivingDead1968/NightOfTheLivingDead1968.thumbs/NightOfTheLivingDead1968_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: Night of the Living Dead</span>
@@ -78,14 +79,15 @@
             </div>
         </div>
 
-        <!-- Channel 3: Science Fiction -->
+        <!-- Repeat for channels 3-18 with their HLS or MP4 sources -->
+        <!-- Example for Channel 3 -->
         <div class="channel-row" onclick="openPlayer('https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8', 'application/x-mpegURL')">
             <div class="channel-number">3</div>
             <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo3" alt="Science Fiction Logo">
             <div class="channel-info">
                 <h3>Science Fiction</h3>
                 <p class="now-playing">Now Playing: Plan 9 from Outer Space (1959)</p>
-                <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
                     <img class="next-thumbnail" src="https://archive.org/download/TheLastManOnEarth1964/TheLastManOnEarth1964.thumbs/TheLastManOnEarth1964_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: The Last Man on Earth</span>
@@ -93,24 +95,7 @@
             </div>
         </div>
 
-        <!-- Add the remaining 15 channels similarly, with unique progress styles (width: XX%) for dynamism -->
-        <!-- Example for Channel 4 -->
-        <div class="channel-row" onclick="openPlayer('https://archive.org/download/PopeyeTheSailorMeetsSindbadTheSailor/PopeyeTheSailorMeetsSindbadTheSailor.mp4', 'video/mp4')">
-            <div class="channel-number">4</div>
-            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo4" alt="Cartoon Logo">
-            <div class="channel-info">
-                <h3>Cartoon</h3>
-                <p class="now-playing">Now Playing: Popeye Meets Sindbad (1936)</p>
-                <div class="progress-bar"><div class="progress-fill" style="width: 45%;"></div></div>
-                <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/SupermanCartoons/SupermanCartoons.thumbs/SupermanCartoons_000001.jpg" alt="Next Thumbnail">
-                    <span class="next-description">Next: Superman Cartoons</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ... Repeat for channels 5-18 with their MP4 or HLS sources, logos, and progress widths ... -->
-
+        <!-- ... Add the rest as before ... -->
     </div>
 
     <!-- VOD Link -->
@@ -152,6 +137,18 @@
         window.onclick = function(event) {
             if (event.target.className === 'modal') closeModal();
         };
+
+        // Dynamic Timers & Animated Progress Bars
+        document.querySelectorAll('.channel-row').forEach((row, index) => {
+            const progressFill = row.querySelector('.progress-fill');
+            let progress = Math.random() * 100; // Random starting progress for dynamism
+            progressFill.style.width = `${progress}%`;
+            setInterval(() => {
+                progress += 0.1; // Increment (adjust for program length, e.g., 0.055 for 30min = 1800s)
+                if (progress > 100) progress = 0;
+                progressFill.style.width = `${progress}%`;
+            }, 180); // Update every 180ms for smooth animation
+        });
     </script>
 
     <footer>
