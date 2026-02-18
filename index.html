@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Old Glory Classics - Free Public Domain Channels</title>
+    <title>Your FAST Streams - Free Public Domain Channels</title>
     <!-- Video.js CSS & JS -->
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
@@ -14,16 +14,15 @@
         .channels { display: flex; flex-direction: column; gap: 10px; max-width: 1400px; margin: 0 auto; padding: 0 10px; }
         .channel-row { display: grid; grid-template-columns: 60px 80px 1fr 200px; background: #111; border-bottom: 1px solid #222; padding: 15px; align-items: center; cursor: pointer; transition: background 0.3s; }
         .channel-row:hover { background: #1c1c1c; }
-        .channel-number { text-align: center; font-weight: bold; color: #ffd700; font-size: 1.2em; }
+        .channel-number { text-align: center; font-weight: bold; color: #A10000; font-size: 1.2em; }
         .channel-logo { width: 50px; height: 50px; object-fit: contain; margin: 0 15px; border-radius: 4px; background: #222; }
         .channel-info { padding: 0 15px; position: relative; }
         .channel h3 { margin: 0 0 5px 0; color: #fff; font-size: 1.1em; }
         .now-playing { font-style: italic; color: #ccc; margin: 0; font-size: 1em; }
         .progress-bar { width: 100%; height: 4px; background: #333; margin-top: 5px; border-radius: 2px; overflow: hidden; }
-        .progress-fill { height: 100%; background: #ffd700; width: 0; transition: width 0.5s linear; animation: progress 1800s linear infinite; } /* 30 min = 1800s */
+        .progress-fill { height: 100%; background: #A10000; width: 0; transition: width 0.5s linear; animation: progress 1800s linear infinite; } /* 30 min = 1800s */
         @keyframes progress { 0% { width: 0; } 100% { width: 100%; } }
         .next-program { display: flex; align-items: center; gap: 10px; color: #aaa; font-size: 0.9em; margin-top: 10px; }
-        .next-thumbnail { width: 100px; height: 56px; object-fit: cover; border-radius: 4px; background: #000; }
         .next-description { flex: 1; }
         .vod-link { text-align: center; margin: 30px 0; }
         .vod-link a { color: #4da6ff; font-size: 1.2em; text-decoration: none; }
@@ -38,7 +37,6 @@
             .channel-logo { grid-column: 1; grid-row: 1 / 3; margin: 0 10px 0 0; }
             .channel-info { grid-column: 2; grid-row: 1 / 3; }
             .next-program { flex-direction: column; align-items: flex-start; }
-            .next-thumbnail { width: 100%; height: auto; margin-bottom: 5px; }
         }
         footer { text-align: center; margin-top: 50px; color: #777; font-size: 0.9em; }
         footer a { color: #aaa; text-decoration: none; }
@@ -46,10 +44,11 @@
     </style>
 </head>
 <body>
-    <h1>Old Glory Classics</h1>
+    <img src="https://placeholder.com/200x50?text=Your+Logo" alt="Your FAST Streams" style="display: block; margin: 20px auto; width: 200px;">
+
     <p class="description">Free ad-supported public domain & Creative Commons streaming service.<br>18 live channels + growing on-demand library. No sign-up required.</p>
 
-    <h2>24/7 Live Channels</h2>
+    <h2>Live Channels (24/7 Looping)</h2>
     <div class="channels">
         <div class="channel-row" onclick="openPlayer('https://archive.org/download/charlie_chaplin_film_fest/charlie_chaplin_film_fest.mp4', 'video/mp4')">
             <div class="channel-number">1</div>
@@ -59,7 +58,6 @@
                 <p class="now-playing">Now Playing: Charlie Chaplin Shorts</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/laurel_and_hardy_collection/laurel_and_hardy_collection.thumbs/laurel_and_hardy_collection_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: Laurel & Hardy Comedy</span>
                 </div>
             </div>
@@ -73,7 +71,6 @@
                 <p class="now-playing">Now Playing: House on Haunted Hill (1959)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/NightOfTheLivingDead1968/NightOfTheLivingDead1968.thumbs/NightOfTheLivingDead1968_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: Night of the Living Dead</span>
                 </div>
             </div>
@@ -87,7 +84,6 @@
                 <p class="now-playing">Now Playing: Plan 9 from Outer Space (1959)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/TheLastManOnEarth1964/TheLastManOnEarth1964.thumbs/TheLastManOnEarth1964_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: The Last Man on Earth</span>
                 </div>
             </div>
@@ -101,7 +97,6 @@
                 <p class="now-playing">Now Playing: Popeye Meets Sindbad (1936)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/SupermanCartoons/SupermanCartoons.thumbs/SupermanCartoons_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: Superman Cartoons</span>
                 </div>
             </div>
@@ -115,7 +110,6 @@
                 <p class="now-playing">Now Playing: The Little Princess (1939)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/Heidi1937/Heidi1937.thumbs/Heidi1937_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: Heidi (1937)</span>
                 </div>
             </div>
@@ -129,7 +123,6 @@
                 <p class="now-playing">Now Playing: Dressed to Kill (1946)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/TheHoundOfTheBaskervilles1939/TheHoundOfTheBaskervilles1939.thumbs/TheHoundOfTheBaskervilles1939_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: The Hound of the Baskervilles</span>
                 </div>
             </div>
@@ -143,7 +136,6 @@
                 <p class="now-playing">Now Playing: Cyrano de Bergerac (1950)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/TheSheik1921/TheSheik1921.thumbs/TheSheik1921_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: The Sheik</span>
                 </div>
             </div>
@@ -157,7 +149,6 @@
                 <p class="now-playing">Now Playing: McLintock! (1963)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/Stagecoach1939/Stagecoach1939.thumbs/Stagecoach1939_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: Stagecoach</span>
                 </div>
             </div>
@@ -171,7 +162,6 @@
                 <p class="now-playing">Now Playing: A Christmas Carol (1938)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/ItsaWonderfulLife1946/ItsaWonderfulLife1946.thumbs/ItsaWonderfulLife1946_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: It's a Wonderful Life</span>
                 </div>
             </div>
@@ -185,7 +175,6 @@
                 <p class="now-playing">Now Playing: Metropolis (1927)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/TheKid1921/TheKid1921.thumbs/TheKid1921_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: The Kid</span>
                 </div>
             </div>
@@ -199,7 +188,6 @@
                 <p class="now-playing">Now Playing: Zorro Rides Again (1937 serial)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/FlashGordon1936/FlashGordon1936.thumbs/FlashGordon1936_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: Flash Gordon</span>
                 </div>
             </div>
@@ -213,7 +201,6 @@
                 <p class="now-playing">Now Playing: British Pathe News (1940s)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/UniversalNewsreel/UniversalNewsreel.thumbs/UniversalNewsreel_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: Universal Newsreels</span>
                 </div>
             </div>
@@ -227,7 +214,6 @@
                 <p class="now-playing">Now Playing: The Battle of Britain (1943)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/WhyWeFightPreludeToWar/WhyWeFightPreludeToWar.thumbs/WhyWeFightPreludeToWar_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: Why We Fight</span>
                 </div>
             </div>
@@ -241,7 +227,6 @@
                 <p class="now-playing">Now Playing: Vintage Baseball Footage (1930s)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/olympic_games_1936/olympic_games_1936.thumbs/olympic_games_1936_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: 1936 Olympics</span>
                 </div>
             </div>
@@ -255,7 +240,6 @@
                 <p class="now-playing">Now Playing: King of Kings (1927)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/TheLivingChristSeries/TheLivingChristSeries.thumbs/TheLivingChristSeries_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: The Living Christ</span>
                 </div>
             </div>
@@ -269,7 +253,6 @@
                 <p class="now-playing">Now Playing: Duke Ellington Shorts (1930s)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/JazzOnFilmCollection/JazzOnFilmCollection.thumbs/JazzOnFilmCollection_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: Jazz on Film</span>
                 </div>
             </div>
@@ -283,7 +266,6 @@
                 <p class="now-playing">Now Playing: The Shadow (Visualized)</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/WarOfTheWorldsOtr/WarOfTheWorldsOtr.thumbs/WarOfTheWorldsOtr_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: War of the Worlds</span>
                 </div>
             </div>
@@ -297,7 +279,6 @@
                 <p class="now-playing">Now Playing: 4K Nature Relaxation Loop</p>
                 <div class="progress-bar"><div class="progress-fill"></div></div>
                 <div class="next-program">
-                    <img class="next-thumbnail" src="https://archive.org/download/OceanWavesLoop/OceanWavesLoop.thumbs/OceanWavesLoop_000001.jpg" alt="Next Thumbnail">
                     <span class="next-description">Next: Ocean Waves</span>
                 </div>
             </div>
