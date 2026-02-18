@@ -14,13 +14,13 @@
         .channels { display: flex; flex-direction: column; gap: 10px; max-width: 1400px; margin: 0 auto; padding: 0 10px; }
         .channel-row { display: grid; grid-template-columns: 60px 80px 1fr 200px; background: #111; border-bottom: 1px solid #222; padding: 15px; align-items: center; cursor: pointer; transition: background 0.3s; }
         .channel-row:hover { background: #1c1c1c; }
-        .channel-number { text-align: center; font-weight: bold; color: #A10000; font-size: 1.2em; }
+        .channel-number { text-align: center; font-weight: bold; color: #ffd700; font-size: 1.2em; }
         .channel-logo { width: 50px; height: 50px; object-fit: contain; margin: 0 15px; border-radius: 4px; background: #222; }
         .channel-info { padding: 0 15px; position: relative; }
         .channel h3 { margin: 0 0 5px 0; color: #fff; font-size: 1.1em; }
         .now-playing { font-style: italic; color: #ccc; margin: 0; font-size: 1em; }
         .progress-bar { width: 100%; height: 4px; background: #333; margin-top: 5px; border-radius: 2px; overflow: hidden; }
-        .progress-fill { height: 100%; background: #A10000; width: 0; transition: width 0.5s linear; animation: progress 1800s linear infinite; } /* 30 min = 1800s */
+        .progress-fill { height: 100%; background: #ffd700; width: 0; transition: width 0.5s linear; animation: progress 1800s linear infinite; } /* 30 min = 1800s */
         @keyframes progress { 0% { width: 0; } 100% { width: 100%; } }
         .next-program { display: flex; align-items: center; gap: 10px; color: #aaa; font-size: 0.9em; margin-top: 10px; }
         .next-thumbnail { width: 100px; height: 56px; object-fit: cover; border-radius: 4px; background: #000; }
@@ -51,7 +51,7 @@
 
     <h2>24/7 Live Channels</h2>
     <div class="channels">
-        <div class="channel-row" onclick="openPlayer('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8', 'application/x-mpegURL')">
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/charlie_chaplin_film_fest/charlie_chaplin_film_fest.mp4', 'video/mp4')">
             <div class="channel-number">1</div>
             <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo1" alt="Comedy Logo">
             <div class="channel-info">
@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <div class="channel-row" onclick="openPlayer('https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8', 'application/x-mpegURL')">
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/HouseOnHauntedHill1959/HouseOnHauntedHill1959.mp4', 'video/mp4')">
             <div class="channel-number">2</div>
             <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo2" alt="Horror Logo">
             <div class="channel-info">
@@ -79,9 +79,7 @@
             </div>
         </div>
 
-        <!-- Repeat for channels 3-18 with their HLS or MP4 sources -->
-        <!-- Example for Channel 3 -->
-        <div class="channel-row" onclick="openPlayer('https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8', 'application/x-mpegURL')">
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/Plan9FromOuterSpace1959/Plan9FromOuterSpace1959.mp4', 'video/mp4')">
             <div class="channel-number">3</div>
             <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo3" alt="Science Fiction Logo">
             <div class="channel-info">
@@ -95,7 +93,215 @@
             </div>
         </div>
 
-        <!-- ... Add the rest as before ... -->
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/PopeyeTheSailorMeetsSindbadTheSailor/PopeyeTheSailorMeetsSindbadTheSailor.mp4', 'video/mp4')">
+            <div class="channel-number">4</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo4" alt="Cartoon Logo">
+            <div class="channel-info">
+                <h3>Cartoon</h3>
+                <p class="now-playing">Now Playing: Popeye Meets Sindbad (1936)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/SupermanCartoons/SupermanCartoons.thumbs/SupermanCartoons_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: Superman Cartoons</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/TheLittlePrincess1939/TheLittlePrincess1939.mp4', 'video/mp4')">
+            <div class="channel-number">5</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo5" alt="Family Logo">
+            <div class="channel-info">
+                <h3>Family</h3>
+                <p class="now-playing">Now Playing: The Little Princess (1939)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/Heidi1937/Heidi1937.thumbs/Heidi1937_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: Heidi (1937)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/DressedToKill1946/DressedToKill1946.mp4', 'video/mp4')">
+            <div class="channel-number">6</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo6" alt="Mystery Logo">
+            <div class="channel-info">
+                <h3>Mystery</h3>
+                <p class="now-playing">Now Playing: Dressed to Kill (1946)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/TheHoundOfTheBaskervilles1939/TheHoundOfTheBaskervilles1939.thumbs/TheHoundOfTheBaskervilles1939_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: The Hound of the Baskervilles</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/CyranoDeBergerac1950/CyranoDeBergerac1950.mp4', 'video/mp4')">
+            <div class="channel-number">7</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo7" alt="Romance Logo">
+            <div class="channel-info">
+                <h3>Romance</h3>
+                <p class="now-playing">Now Playing: Cyrano de Bergerac (1950)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/TheSheik1921/TheSheik1921.thumbs/TheSheik1921_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: The Sheik</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/McLintock1963/McLintock1963.mp4', 'video/mp4')">
+            <div class="channel-number">8</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo8" alt="Western Logo">
+            <div class="channel-info">
+                <h3>Western</h3>
+                <p class="now-playing">Now Playing: McLintock! (1963)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/Stagecoach1939/Stagecoach1939.thumbs/Stagecoach1939_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: Stagecoach</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/AChristmasCarol1938/AChristmasCarol1938.mp4', 'video/mp4')">
+            <div class="channel-number">9</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo9" alt="Holiday Logo">
+            <div class="channel-info">
+                <h3>Holiday</h3>
+                <p class="now-playing">Now Playing: A Christmas Carol (1938)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/ItsaWonderfulLife1946/ItsaWonderfulLife1946.thumbs/ItsaWonderfulLife1946_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: It's a Wonderful Life</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/Metropolis1927/Metropolis1927.mp4', 'video/mp4')">
+            <div class="channel-number">10</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo10" alt="Silent Logo">
+            <div class="channel-info">
+                <h3>Silent</h3>
+                <p class="now-playing">Now Playing: Metropolis (1927)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/TheKid1921/TheKid1921.thumbs/TheKid1921_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: The Kid</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/ZorroRidesAgain1937/ZorroRidesAgain1937.mp4', 'video/mp4')">
+            <div class="channel-number">11</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo11" alt="Serials/Television Logo">
+            <div class="channel-info">
+                <h3>Serials/Television</h3>
+                <p class="now-playing">Now Playing: Zorro Rides Again (1937 serial)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/FlashGordon1936/FlashGordon1936.thumbs/FlashGordon1936_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: Flash Gordon</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/BritishPatheNews/BritishPatheNews.mp4', 'video/mp4')">
+            <div class="channel-number">12</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo12" alt="Newsreels Logo">
+            <div class="channel-info">
+                <h3>Newsreels</h3>
+                <p class="now-playing">Now Playing: British Pathe News (1940s)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/UniversalNewsreel/UniversalNewsreel.thumbs/UniversalNewsreel_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: Universal Newsreels</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/TheBattleOfBritain1943/TheBattleOfBritain1943.mp4', 'video/mp4')">
+            <div class="channel-number">13</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo13" alt="War Logo">
+            <div class="channel-info">
+                <h3>War</h3>
+                <p class="now-playing">Now Playing: The Battle of Britain (1943)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/WhyWeFightPreludeToWar/WhyWeFightPreludeToWar.thumbs/WhyWeFightPreludeToWar_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: Why We Fight</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/VintageBaseballFootage/VintageBaseballFootage.mp4', 'video/mp4')">
+            <div class="channel-number">14</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo14" alt="Sport Logo">
+            <div class="channel-info">
+                <h3>Sport</h3>
+                <p class="now-playing">Now Playing: Vintage Baseball Footage (1930s)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/olympic_games_1936/olympic_games_1936.thumbs/olympic_games_1936_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: 1936 Olympics</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/KingOfKings1927/KingOfKings1927.mp4', 'video/mp4')">
+            <div class="channel-number">15</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo15" alt="Faith & Inspiration Logo">
+            <div class="channel-info">
+                <h3>Faith & Inspiration</h3>
+                <p class="now-playing">Now Playing: King of Kings (1927)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/TheLivingChristSeries/TheLivingChristSeries.thumbs/TheLivingChristSeries_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: The Living Christ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/DukeEllingtonShorts/DukeEllingtonShorts.mp4', 'video/mp4')">
+            <div class="channel-number">16</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo16" alt="Vintage Music Performances Logo">
+            <div class="channel-info">
+                <h3>Vintage Music Performances</h3>
+                <p class="now-playing">Now Playing: Duke Ellington Shorts (1930s)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/JazzOnFilmCollection/JazzOnFilmCollection.thumbs/JazzOnFilmCollection_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: Jazz on Film</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/TheShadowOtr/TheShadowOtr.mp4', 'video/mp4')">
+            <div class="channel-number">17</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo17" alt="Old Time Radio Theater Logo">
+            <div class="channel-info">
+                <h3>Old Time Radio Theater</h3>
+                <p class="now-playing">Now Playing: The Shadow (Visualized)</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/WarOfTheWorldsOtr/WarOfTheWorldsOtr.thumbs/WarOfTheWorldsOtr_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: War of the Worlds</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="channel-row" onclick="openPlayer('https://archive.org/download/4KNatureLoop/4KNatureLoop.mp4', 'video/mp4')">
+            <div class="channel-number">18</div>
+            <img class="channel-logo" src="https://placeholder.com/50x50?text=Logo18" alt="Relaxation/Ambient Loops Logo">
+            <div class="channel-info">
+                <h3>Relaxation/Ambient Loops</h3>
+                <p class="now-playing">Now Playing: 4K Nature Relaxation Loop</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="next-program">
+                    <img class="next-thumbnail" src="https://archive.org/download/OceanWavesLoop/OceanWavesLoop.thumbs/OceanWavesLoop_000001.jpg" alt="Next Thumbnail">
+                    <span class="next-description">Next: Ocean Waves</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- VOD Link -->
